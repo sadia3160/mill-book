@@ -3,15 +3,18 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+   
 }
 
 /* Body */
 body{
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    height: 100vh;
+
+    background-color: #ffffff;
 }
 
 /* Container */
@@ -22,7 +25,7 @@ body{
 /* Fieldset */
 fieldset{
     background: #ffffff;
-    border: 2px solid #4facfe;
+    border: 2px solid #56412B;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -32,7 +35,7 @@ fieldset{
 legend{
     font-size: 24px;
     font-weight: bold;
-    color: #0077cc;
+    color: #56412B;
     padding: 0 10px;
     text-transform: capitalize;
 }
@@ -56,8 +59,8 @@ input{
 }
 
 input:focus{
-    border-color: #0077cc;
-    box-shadow: 0 0 5px #4facfe;
+    border-color: #56412B;
+    box-shadow: 0 0 5px #B49270;
 }
 
 /* Button */
@@ -65,7 +68,7 @@ button{
     width: 100%;
     padding: 12px;
     margin-top: 20px;
-    background: #0077cc;
+    background: #764D21;
     color: white;
     border: none;
     border-radius: 5px;
@@ -75,5 +78,13 @@ button{
 }
 
 button:hover{
-    background: #005fa3;
+    background: #56412B;
 }
+
+/*
+C8A989
+B49270
+C68942
+764D21
+56412B
+*/
