@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+/* Body */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    background-color: #ffffff;
+}
+
+/* Container */
+.container{
+    width: 350px;
+}
+
+/* Fieldset */
+fieldset{
+    background: #ffffff;
+    border: 2px solid #56412B;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Legend */
+legend{
+    font-size: 24px;
+    font-weight: bold;
+    color: #56412B;
+    padding: 0 10px;
+    text-transform: capitalize;
+}
+
+/* Label */
+label{
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input */
+input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+input:focus{
+    border-color: #56412B;
+    box-shadow: 0 0 5px #B49270;
+}
+
+/* Button */
+button{
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #764D21;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: #56412B;
+}
+
+/*
+C8A989
+B49270
+C68942
+764D21
+56412B
+*/
