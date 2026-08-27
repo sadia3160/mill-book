@@ -1,0 +1,99 @@
+body {
+    min-height: 100vh;
+    width: 100%;
+    font-family: "Spinnaker", sans-serif;
+}
+
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #f5efea;
+    color: #764D21;
+    height: 70px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #56412B;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+.title-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 15px 0px 15px;
+    margin: 8px;
+}
+
+#profile-avatar{
+    height: 30px;
+    width: 30px;
+    margin-left: 20px; 
+}
+
+#seller-avatar{
+    height: 30px;
+    width: 30px;
+    border: 1px solid white;
+    padding: 3px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+#seller{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightgray;
+    background: linear-gradient( #e67b02,  #ef9126);
+    color: white;
+    padding: 0px 15px 0px 15px;
+    margin: 8px;
+    border-radius: 40px;
+}
+
+.nav-bar{
+    display: flex;
+}
+
+.nav-bar li{
+    list-style: none;
+    margin: 10px;
+}
+
+.nav-bar li a{
+    position: relative;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.nav-bar li a:before{
+    content:'';
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    bottom: 0;
+    left: 0;
+    background-color: #e67b02;
+    transition: all .5s ease;
+    border-radius: 15px;
+}
+
+.nav-bar li a:hover:before{
+    width: 100%;
+}
+
+/*
+    colors: 
+    C8A989 -> soft sand
+    B49270 -> warm tan
+    C68942 -> caramel
+    764D21 -> deep chestnut
+    56412B -> dark expresso
+*/
