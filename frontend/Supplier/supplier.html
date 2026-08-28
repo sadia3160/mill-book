@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seller Management</title>
+
+<link rel="stylesheet" href="sellerstyle.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2> Seller Information</h2>
+
+<form id="sellerForm">
+
+<input type="text" id="sellerName" placeholder="Seller Name" required>
+
+<input type="text" id="phone" placeholder="Phone Number" required>
+
+<input type="text" id="address" placeholder="Address" required>
+
+<select id="riceType" required>
+    <option ="" disabled selected>Rice Type</option>
+    
+    <option>Ariton</option>
+    <option>Bharati</option>
+    <option>BR75</option>
+    <option>BR59</option>
+    <option>BR74</option>
+    <option value>Hira 2</option>
+    <option>BR28</option>
+    <option value>Lal Dhan</option>
+    <option value>Shoummya Dhan</option>
+    <option>Bangabandhu 0</option>
+    <option>BR92</option>
+    <option>BR96</option>
+
+
+</select>
+
+<input type="number" id="quantity" placeholder="Quantity (KG)">
+
+<input type="number" id="pricePerKg" placeholder="Price Per KG">
+
+<input type="number" id="paidAmount" placeholder="Paid Amount">
+
+<input type="date" id="date">
+
+<button type="submit">Save Seller</button>
+
+</form>
+
+<h3>Seller List</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Phone</th>
+
+<th>Rice</th>
+
+<th>Total</th>
+
+<th>Paid</th>
+
+<th>Due</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="sellerTable"></tbody>
+
+</table>
+
+</div>
+
+<script src="seller.js"></script>
+
+</body>
+</html>
