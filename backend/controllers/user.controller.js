@@ -11,9 +11,7 @@ const registerUser = async (req, res) => {
             return res.status(400).json({message: "Enter all information"});
         }
 
-        //if( password !== confirmPass){
-           // return res.status(400).json({message: "Password doesn't match"});
-        //}
+    
         
         //check if exists
         const isExists = await User.findOne({email : email.toLowerCase()});
