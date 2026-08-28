@@ -2,94 +2,92 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Seller Management</title>
-
-<link rel="stylesheet" href="sellerstyle.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MillBook Suppliers</title>
+    <link rel="stylesheet" href="supplierstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spinnaker&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
+    <div id="supplier-hero">
+        <h2>Supplier Info</h2>
+    </div>
 
-<h2> Seller Information</h2>
+    <ul class="nav-bar">
+        <li><a href='#'>Home</a></li>
+        <li><a href='#'>Purchases</a></li>
+        <li><a href='#'>Milling</a></li>
+        <li><a href='#'>Report</a></li>
+        <li><a href='#'>Sales</a></li>
+    </ul>
 
-<form id="sellerForm">
+    <button id="new-supplier">Add new supplier</button>
 
-<input type="text" id="sellerName" placeholder="Seller Name" required>
+    <div class="form-container">
 
-<input type="text" id="phone" placeholder="Phone Number" required>
+        <h2>New supplier</h2>
 
-<input type="text" id="address" placeholder="Address" required>
+        <form id="supplierForm">
 
-<select id="riceType" required>
-    <option ="" disabled selected>Rice Type</option>
-    
-    <option>Ariton</option>
-    <option>Bharati</option>
-    <option>BR75</option>
-    <option>BR59</option>
-    <option>BR74</option>
-    <option value>Hira 2</option>
-    <option>BR28</option>
-    <option value>Lal Dhan</option>
-    <option value>Shoummya Dhan</option>
-    <option>Bangabandhu 0</option>
-    <option>BR92</option>
-    <option>BR96</option>
+            <input type="text" id="sellerName" placeholder="Supplier Name" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <input type="text" id="address" placeholder="Address" required>
 
+            <select id="riceType" required>
+                <option ="" disabled selected>Rice Type</option>
+                
+                <option>Ariton</option>
+                <option>Bharati</option>
+                <option>BR75</option>
+                <option>BR59</option>
+                <option>BR74</option>
+                <option>Hira 2</option>
+                <option>BR28</option>
+                <option>Lal Dhan</option>
+                <option>Shoummya Dhan</option>
+                <option>Bangabandhu 0</option>
+                <option>BR92</option>
+                <option>BR96</option>
 
-</select>
+            </select>
 
-<input type="number" id="quantity" placeholder="Quantity (KG)">
+            <input type="number" id="quantity" placeholder="Quantity (KG)">
+            <input type="number" id="pricePerKg" placeholder="Price Per KG">
+            <input type="number" id="paidAmount" placeholder="Paid Amount">
+            <input type="date" id="date">
 
-<input type="number" id="pricePerKg" placeholder="Price Per KG">
+            <button id="close">Close</button>
+            <button type="submit" id="formBtn-submit">Save Supplier</button>
 
-<input type="number" id="paidAmount" placeholder="Paid Amount">
+        </form>
 
-<input type="date" id="date">
+    </div>
 
-<button type="submit">Save Seller</button>
+    <h3>Supplier List</h3>
+    <table>
+        <thead>
+            <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Rice</th>
+                    <th>Total</th>
+                    <th>Paid</th>
+                    <th>Due</th>
+                    <th>Action</th>
+            </tr>
+        </thead>
 
-</form>
+        <tbody id="supplierTable">
+                    
+        </tbody>
 
-<h3>Seller List</h3>
+    </table>
 
-<table>
+    <script src="supplier.js"></script>
 
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Phone</th>
-
-<th>Rice</th>
-
-<th>Total</th>
-
-<th>Paid</th>
-
-<th>Due</th>
-
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody id="sellerTable"></tbody>
-
-</table>
-
-</div>
-
-<script src="seller.js"></script>
-
-</body>
+    </body>
 </html>
