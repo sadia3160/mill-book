@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MillBook Suppliers</title>
+    <link rel="stylesheet" href="supplierstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spinnaker&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="supplier-hero">
+        <h2>Supplier Info</h2>
+    </div>
+
+    <ul class="nav-bar">
+        <li><a href='#'>Home</a></li>
+        <li><a href='#'>Purchases</a></li>
+        <li><a href='#'>Milling</a></li>
+        <li><a href='#'>Report</a></li>
+        <li><a href='#'>Sales</a></li>
+    </ul>
+
+    <button id="new-supplier">Add new supplier</button>
+
+    <div class="form-container">
+
+        <h2>New supplier</h2>
+
+        <form id="supplierForm">
+
+            <input type="text" id="sellerName" placeholder="Supplier Name" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <input type="text" id="address" placeholder="Address" required>
+
+            <select id="riceType" required>
+                <option ="" disabled selected>Rice Type</option>
+                
+                <option>Ariton</option>
+                <option>Bharati</option>
+                <option>BR75</option>
+                <option>BR59</option>
+                <option>BR74</option>
+                <option>Hira 2</option>
+                <option>BR28</option>
+                <option>Lal Dhan</option>
+                <option>Shoummya Dhan</option>
+                <option>Bangabandhu 0</option>
+                <option>BR92</option>
+                <option>BR96</option>
+
+            </select>
+
+            <input type="number" id="quantity" placeholder="Quantity (KG)">
+            <input type="number" id="pricePerKg" placeholder="Price Per KG">
+            <input type="number" id="paidAmount" placeholder="Paid Amount">
+            <input type="date" id="date">
+
+            <button id="close">Close</button>
+            <button type="submit" id="formBtn-submit">Save Supplier</button>
+
+        </form>
+
+    </div>
+
+    <h3>Supplier List</h3>
+    <table>
+        <thead>
+            <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Rice</th>
+                    <th>Total</th>
+                    <th>Paid</th>
+                    <th>Due</th>
+                    <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="supplierTable">
+                    
+        </tbody>
+
+    </table>
+
+    <script src="supplier.js"></script>
+
+    </body>
+</html>
