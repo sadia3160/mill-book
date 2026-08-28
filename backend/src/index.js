@@ -16,7 +16,7 @@ const startServer = async () =>{
             console.log(`ERROR ${err}`);
             throw err;
         });
-
+        
         app.listen(process.env.PORT || 8000, () => {
             console.log(`Server is running on PORT ${process.env.PORT}...`);
         });
