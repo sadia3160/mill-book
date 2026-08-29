@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MillBook Suppliers</title>
+    <link rel="stylesheet" href="supplierstyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spinnaker&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="supplier-hero">
+        <h2>Supplier Info</h2>
+    </div>
+
+    <nav>
+      <ul class="nav-bar">
+        <li><a href='../home/home.html'>Home</a></li>
+        <li><a href='../purchase/purchase.html'>Purchases</a></li>
+        <li><a href='../milling/milling.html'>Milling</a></li>
+        <li><a href='../sales/sales.html'>Sales</a></li>
+        <li><a href='../report/report.html'>Report</a></li>
+      </ul>
+    </nav>
+
+    <button id="new-supplier">Add new supplier</button>
+
+    <div class="form-container">
+
+        <h2>New supplier</h2>
+
+        <form id="supplierForm">
+
+            <input type="text" id="sellerName" placeholder="Supplier Name" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <input type="text" id="address" placeholder="Address" required>
+            <input type="number" id="paidAmount" placeholder="Paid Amount">
+             <input type="number" id="dueAmount" placeholder="Due Amount">
+            <button id="close">Close</button>
+            <button type="submit" id="formBtn-submit">Save Supplier</button>
+
+        </form>
+
+    </div>
+
+    <h3>Supplier List</h3>
+    <table>
+        <thead>
+            <tr>
+                    <th>Supplier ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Total</th>
+                    <th>Paid Purchase</th>
+                    <th>Due Purchase</th>
+                    <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="supplierTable">
+                    
+        </tbody>
+
+    </table>
+
+    <script src="supplier.js"></script>
+
+    </body>
+</html>

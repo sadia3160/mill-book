@@ -16,14 +16,42 @@
         <h2>Sales</h2>
     </div>
 
-    <ul class="nav-bar">
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>Purchases</a></li>
-        <li><a href='#'>Milling</a></li>
-        <li><a href='#'>Report</a></li>
-        <li><a href='sales.html'>Sales</a></li>
-    </ul>
+    <nav>
+      <ul class="nav-bar">
+        <li><a href='../home/home.html'>Home</a></li>
+        <li><a href='../purchase/purchase.html'>Purchases</a></li>
+        <li><a href='../milling/milling.html'>Milling</a></li>
+        <li><a href='../sales/sales.html'>Sales</a></li>
+        <li><a href='../report/report.html'>Report</a></li>
+      </ul>
+    </nav>
+  
+    <div id="sales-type">
+      <button id="new-paid">Paid</button>
+      <button id="new-due">Due</button>
+    </div>
 
+    <h3>Sales Record</h3>
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Product Name</th>
+                <th>Customer Name</th>
+                <th>Customer Info</th>
+                <th>Paid Sales</th>
+                <th>Due Sales</th>
+                <th>Total</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="purchaseTable">
+
+        </tbody>
+
+    </table>
    
 
 
