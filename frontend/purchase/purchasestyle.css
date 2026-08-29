@@ -35,6 +35,69 @@ body{
     background-color: #56412B; 
 }
 
+.purchase-form-container {
+    display: none;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2{
+    margin-bottom: 30px;
+}
+input, select, date{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin: 15px;
+    font-size: 16px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+}
+
+#add-btn, #clear-btn{
+    display: inline;
+    padding: 12px 20px;
+    margin: 15px 0 10px 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #8f591b;
+    color: white;
+    cursor: pointer;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #56412B;
+    color: white;
+}
+
+h3{
+    text-align: center;
+}
+
+
 .nav-bar{
     display: flex;
 }

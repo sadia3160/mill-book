@@ -16,16 +16,175 @@
         <h2>Purchase</h2>
     </div>
 
-    <ul class="nav-bar">
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>Report</a></li>
-        <li><a href='#'>Milling</a></li>
-        <li><a href='#'>Sales</a></li>
-        <li><a href='purchase/purchase.html'>Purchase     </a></li>
-    </ul>
+    <nav>
+      <ul class="nav-bar">
+        <li><a href='../home/home.html'>Home</a></li>
+        <li><a href='../purchase/purchase.html'>Purchases</a></li>
+        <li><a href='../milling/milling.html'>Milling</a></li>
+        <li><a href='../sales/sales.html'>Sales</a></li>
+        <li><a href='../report/report.html'>Report</a></li>
+      </ul>
+    </nav>
        
 
    <button id="new-purchase">New Purchase</button>
+
+   <div class="purchase-form-container">
+
+        <h2>New purchase</h2>
+
+        <div class="form-box">
+
+            <form id="purchaseForm">
+
+                <div class="form-group">
+                    <label>Purchase Date</label>
+                    <input type="date" id="purchaseDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text"
+                           id="description"
+                           placeholder="Enter description"
+                           required>
+                </div>
+
+                <select id="riceType" required>
+                <option ="" disabled selected>Rice Type</option>
+                
+                <option>Ariton</option>
+                <option>Bharati</option>
+                <option>BR75</option>
+                <option>BR59</option>
+                <option>BR74</option>
+                <option>Hira 2</option>
+                <option>BR28</option>
+                <option>Lal Dhan</option>
+                <option>Shoummya Dhan</option>
+                <option>Bangabandhu 0</option>
+                <option>BR92</option>
+                <option>BR96</option>
+
+            </select>
+
+                <div class="form-group">
+                    <label>Quantity (KG)</label>
+                    <input type="number"
+                           id="quantity"
+                           placeholder="Enter quantity"
+                           min="0"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Unit Price (TK)</label>
+                    <input type="number"
+                           id="unitPrice"
+                           placeholder="Enter unit price"
+                           min="0"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Total Purchase Cost (TK)</label>
+                    <input type="number"
+                           id="totalCost"
+                           min="0"
+                           placeholder="Enter purchase cost"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Supplier</label>
+                    <input type="text"
+                           id="supplier"
+                           placeholder="Enter supplier name"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>On Account</label>
+
+                    <select id="onAccount">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Paid Amount (TK)</label>
+                    <input type="number"
+                           id="paidAmount"
+                           placeholder="Enter paid amount"
+                           min="0"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <label>Due Amount (TK)</label>
+                    <input type="number"
+                           id="dueAmount"
+                           min="0"
+                           placeholder="Enter due amount"
+                           required>
+                </div>
+
+                <div class="button-area">
+
+                    <button type="reset" id="clear-btn">
+                        Clear
+                    </button>
+
+                    <button type="submit" id="add-btn">
+                         Add Purchase
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+   </div>
+
+   
+
+   <h3>Purchase List</h3>
+   <table>
+
+                <thead>
+
+                    <tr>
+                        <th>PID</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Rice Type</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total Cost</th>
+                        <th>Supplier ID</th>
+                        <th>On Account</th>
+                        <th>Paid</th>
+                        <th>Due</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="purchaseTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script src="purchase.js"></script>
 
 </body>
 </html>

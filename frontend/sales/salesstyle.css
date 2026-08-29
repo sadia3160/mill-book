@@ -21,20 +21,51 @@ body{
 #new-paid,
 #new-due {
     padding: 12px 20px;
-    margin-left: 20px;
-    margin-right: 10px;
     font-size: 16px;
+    width: 80px;
+    margin-left: 8px;
     border: none;
-    border-radius: 6px;
+    border-radius: 20px;
     background-color: #8f591b;
     color: white;
     cursor: pointer;
+}
+
+#sales-type{
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: 30px;
 }
 
 #new-paid:hover,
 #new-due:hover {
     background-color: #56412B;
 }
+
+h3{
+    text-align: center;
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #56412B;
+    color: white;
+}
+
 
 
 .nav-bar{

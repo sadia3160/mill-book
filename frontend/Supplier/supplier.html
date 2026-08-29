@@ -17,13 +17,15 @@
         <h2>Supplier Info</h2>
     </div>
 
-    <ul class="nav-bar">
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>Purchases</a></li>
-        <li><a href='#'>Milling</a></li>
-        <li><a href='#'>Report</a></li>
-        <li><a href='#'>Sales</a></li>
-    </ul>
+    <nav>
+      <ul class="nav-bar">
+        <li><a href='../home/home.html'>Home</a></li>
+        <li><a href='../purchase/purchase.html'>Purchases</a></li>
+        <li><a href='../milling/milling.html'>Milling</a></li>
+        <li><a href='../sales/sales.html'>Sales</a></li>
+        <li><a href='../report/report.html'>Report</a></li>
+      </ul>
+    </nav>
 
     <button id="new-supplier">Add new supplier</button>
 
@@ -36,30 +38,8 @@
             <input type="text" id="sellerName" placeholder="Supplier Name" required>
             <input type="text" id="phone" placeholder="Phone Number" required>
             <input type="text" id="address" placeholder="Address" required>
-
-            <select id="riceType" required>
-                <option ="" disabled selected>Rice Type</option>
-                
-                <option>Ariton</option>
-                <option>Bharati</option>
-                <option>BR75</option>
-                <option>BR59</option>
-                <option>BR74</option>
-                <option>Hira 2</option>
-                <option>BR28</option>
-                <option>Lal Dhan</option>
-                <option>Shoummya Dhan</option>
-                <option>Bangabandhu 0</option>
-                <option>BR92</option>
-                <option>BR96</option>
-
-            </select>
-
-            <input type="number" id="quantity" placeholder="Quantity (KG)">
-            <input type="number" id="pricePerKg" placeholder="Price Per KG">
             <input type="number" id="paidAmount" placeholder="Paid Amount">
-            <input type="date" id="date">
-
+             <input type="number" id="dueAmount" placeholder="Due Amount">
             <button id="close">Close</button>
             <button type="submit" id="formBtn-submit">Save Supplier</button>
 
@@ -71,12 +51,12 @@
     <table>
         <thead>
             <tr>
+                    <th>Supplier ID</th>
                     <th>Name</th>
                     <th>Phone</th>
-                    <th>Rice</th>
                     <th>Total</th>
-                    <th>Paid</th>
-                    <th>Due</th>
+                    <th>Paid Purchase</th>
+                    <th>Due Purchase</th>
                     <th>Action</th>
             </tr>
         </thead>
