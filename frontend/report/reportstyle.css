@@ -50,3 +50,36 @@ body{
 .nav-bar li a:hover:before{
     width: 100%;
 }
+
+#day-report { 
+    margin-left: 40px;
+    padding: 12px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 6px; 
+    background-color: #8f591b; 
+    color: white; 
+    cursor: pointer; 
+}
+
+#month-report, #year-report { 
+    margin-left: 10px;
+    padding: 12px 20px; 
+    font-size: 16px; 
+    border: none; 
+    border-radius: 6px; 
+    background-color: #8f591b; 
+    color: white; 
+    cursor: pointer; 
+}
+
+#day-report:hover { 
+    background-color: #56412B; 
+}
+
+#month-report:hover { 
+    background-color: #56412B; 
+}
+#year-report:hover { 
+    background-color: #56412B; 
+}

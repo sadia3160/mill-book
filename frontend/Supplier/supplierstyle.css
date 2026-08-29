@@ -66,7 +66,7 @@ body {
     margin-bottom: 20px;
 }
 
-input,select {
+input {
     width: 100%;
     box-sizing: border-box;
     padding: 12px;
