@@ -18,6 +18,25 @@ body{
     box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
 
+#new-paid,
+#new-due {
+    padding: 12px 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: #8f591b;
+    color: white;
+    cursor: pointer;
+}
+
+#new-paid:hover,
+#new-due:hover {
+    background-color: #56412B;
+}
+
+
 .nav-bar{
     display: flex;
 }
