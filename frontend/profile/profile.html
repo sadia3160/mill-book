@@ -39,19 +39,26 @@
       </ul>
     </nav>
 
-    <div id="profile-container">
-        <h1>MillBook Profile</h1>
-        
-        <div id="profile-content">
-            <input type="text" id="shopName" placeholder="Shop Name" readonly>
-            <input type="text" id="shopEmail" placeholder="Email" required>
-            <input type="text" id="shopPassword" placeholder="New Password" required>
-            <input type="password" id="confirmShopPassword" placeholder="Confirm Password" required>
-        </div>
-
-        <button id="profile-submit">Submit</button>
-    </div>
     
 
+    <div id="profile-container">
+        <h1>Update Profile</h1>
+        <form id="profileForm">
+            <div id="profile-content">
+                <input type="text" id="shopEmail" placeholder="Email" required>
+                <input type="password" id="shopPassword" placeholder="Current Password" required>
+                <input type="password" id="newShopPassword" placeholder="New Password" required>
+            </div>
+            <button id="profile-submit" type="submit">Submit</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    
+
+    <h3>OR,</h3>
+    <button id="logout">Log Out</button>
+    
+    <script type="module" src="profile.js"></script>
 </body>
 </html>

@@ -1,6 +1,9 @@
 //handles login/signup logic
 
 import { User } from "../models/user.model.js";
+import jwt from 'jsonwebtoken';
+import bcrypt from "bcrypt";
+
 
 const registerUser = async (req, res) => {
     try{
@@ -11,9 +14,6 @@ const registerUser = async (req, res) => {
             return res.status(400).json({message: "Enter all information"});
         }
 
-        //if( password !== confirmPass){
-           // return res.status(400).json({message: "Password doesn't match"});
-        //}
         
         //check if exists
         const isExists = await User.findOne({email : email.toLowerCase()});
@@ -57,15 +57,22 @@ const loginUser = async (req, res) => {
         }
 
         //check password
-        const isSame = await user.comparePassword(password);
+        const isSame = await bcrypt.compare(password, user.password);
         if(!isSame) return res.status(400).json({message: "Invalid credentials."});
+
+        const token = jwt.sign(
+            { id: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '1d'}
+        );
 
         res.status(201).json({
             message: "User logged in!",
             user: { 
                 id: user._id, 
                 name: user.name, 
-                email: user.email
+                email: user.email,
+                token: token
             }
         });
     }
@@ -91,10 +98,42 @@ const logoutUser = async (req, res) => {
 };
 
 
+const changePassUser = async (req, res)=>{
+    try{
+        const {email, password, newPassword} = req.body;
+
+       // const user = await User.findOne({email : email.toLowerCase()});
+
+        //if(!user) return res.status(404).json({message: 'User not found!'});
+
+        const id = req.user.id || req.user._id;
+        if(!id){
+            return res.status(404).json({message: 'User ID not found!'});
+        }
+        const user = await User.findById(id);
+        if(!user) return res.status(404).json({message: 'User not found!'});
+
+        const isMatch = await bcrypt.compare(password, user.password);
+        if(!isMatch){
+            return res.status(400).json({message: "Incorrect password"}); //user is not authenticated
+        }
+
+        user.password = newPassword;
+
+        await user.save();
+
+        res.status(200).json({message:'Password Changed!'});
+    }
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
 export{
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    changePassUser
 };
 
 

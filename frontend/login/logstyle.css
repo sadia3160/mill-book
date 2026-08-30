@@ -5,7 +5,6 @@
     font-family: "Spinnaker", sans-serif;
 }
 
-/* Body */
 body{
     display: flex;
     justify-content: center;
@@ -16,12 +15,10 @@ body{
     background-color: #ffffff;
 }
 
-/* Container */
 .container{
     width: 350px;
 }
 
-/* Fieldset */
 fieldset{
     background: #ffffff;
     border: 2px solid #56412B;
@@ -30,7 +27,6 @@ fieldset{
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Legend */
 legend{
     font-size: 24px;
     font-weight: bold;
@@ -39,7 +35,6 @@ legend{
     text-transform: capitalize;
 }
 
-/* Label */
 label{
     display: block;
     margin-top: 15px;
@@ -47,7 +42,7 @@ label{
     font-weight: bold;
 }
 
-/* Input */
+
 input{
     width: 100%;
     padding: 10px;
@@ -62,7 +57,6 @@ input:focus{
     box-shadow: 0 0 5px #B49270;
 }
 
-/* Button */
 button{
     width: 100%;
     padding: 12px;
@@ -78,6 +72,26 @@ button{
 
 button:hover{
     background: #56412B;
+}
+
+.register-link{
+    margin-top: 20px;
+}
+
+#reg-link-hint {
+    text-decoration: none;
+    color: #56412B;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+#reg-link-hint:hover{
+    text-decoration: underline;
+    color: #e67b02; 
+}
+
+#message{
+    margin-top: 10px;
 }
 
 /*
