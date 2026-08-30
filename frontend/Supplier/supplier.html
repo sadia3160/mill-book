@@ -35,17 +35,19 @@
 
         <form id="supplierForm">
 
-            <input type="text" id="sellerName" placeholder="Supplier Name" required>
-            <input type="text" id="phone" placeholder="Phone Number" required>
-            <input type="text" id="address" placeholder="Address" required>
-            <input type="number" id="paidAmount" placeholder="Paid Amount">
-             <input type="number" id="dueAmount" placeholder="Due Amount">
-            <button id="close">Close</button>
+            <input type="number" id="supplierID" name="supplierID" placeholder="Supplier ID">
+            <input type="text" id="supplierName" name="supplierName" placeholder="Supplier Name">
+            <input type="text" id="supplierPhone" name="supplierPhone" placeholder="Phone Number">
+            <input type="number" id="total" name="supplierTotal" placeholder="Total">
+            <input type="number" id="paidAmount" name="paidAmount" placeholder="Paid Amount">
+             <input type="number" id="dueAmount" name="dueAmount" placeholder="Due Amount">
+            <button id="close" type="button">Close</button>
             <button type="submit" id="formBtn-submit">Save Supplier</button>
 
         </form>
-
+        <p id="supplier-form-msg"></p>
     </div>
+    
 
     <h3>Supplier List</h3>
     <table>
@@ -67,7 +69,7 @@
 
     </table>
 
-    <script src="supplier.js"></script>
+    <script type="module" src="supplier.js"></script>
 
     </body>
 </html>
