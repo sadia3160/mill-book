@@ -6,7 +6,6 @@
 
 }
 
-/* Body */
 body{
     background-color: #ffffff;
     height: 100vh;
@@ -17,14 +16,14 @@ body{
     align-items: center;
 }
 
-/* Container */
+
 .container{
     width: 100%;
     max-width: 450px;
     padding: 20px;
 }
 
-/* Fieldset */
+
 fieldset{
     background: #fff;
     border: 2px solid #56412B;
@@ -34,7 +33,7 @@ fieldset{
 }
 
 
-/* Legend */
+
 legend{
     font-size: 24px;
     font-weight: bold;
@@ -45,7 +44,7 @@ legend{
 }
 
 
-/* Labels */
+
 label{
     display: block;
     margin-top: 15px;
@@ -54,7 +53,7 @@ label{
     color: #333;
 }
 
-/* Input & Textarea */
+
 input,
 textarea{
     width: 100%;
@@ -66,20 +65,20 @@ textarea{
     transition: 0.3s;
 }
 
-/* Focus Effect */
+
 input:focus,
 textarea:focus{
     border-color: #56412B;
     box-shadow: 0 0 8px #B49270;
 }
 
-/* Textarea */
+
 textarea{
     height: 120px;
     resize: none;
 }
 
-/* Button */
+
 button{
     width: 100%;
     margin-top: 20px;
@@ -94,13 +93,13 @@ button{
     transition: 0.3s;
 }
 
-/* Button Hover */
+
 button:hover{
     background: #56412B;
     transform: scale(1.03);
 }
 
-/* Responsive */
+
 @media (max-width: 500px){
     .container{
         width: 90%;
@@ -109,4 +108,22 @@ button:hover{
     legend{
         font-size: 20px;
     }
+}
+
+
+
+#back-to-login {
+    text-decoration: none;
+    color: #e67b02;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+#back-to-login:hover{
+    text-decoration: underline;
+    color:  #56412B; 
+}
+
+#message{
+    margin-top: 10px;
 }

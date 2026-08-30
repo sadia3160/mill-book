@@ -27,6 +27,7 @@ body{
     border: none;
     border-radius: 20px;
     background-color: #8f591b;
+    font-family: "Spinnaker", sans-serif;
     color: white;
     cursor: pointer;
 }
