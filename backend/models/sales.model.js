@@ -1,49 +1,53 @@
-//mongoose supplier schema
+
+//mongoose sales schema
+
 
 import mongoose, {Schema} from "mongoose";
 
-const supplierSchema = new Schema(
+const salesSchema = new Schema(
     {
-        supplierID : {
-            type: Number,
-            required: true,
-            min: 1
-        },
 
-        supplierName : {
+        productName: {
             type: String,
             required: true,
             trim: true
         },
-        
-        supplierPhone: {
-            type: Number,
-            required: true,
-            min: 1
+
+        salesDate: {
+            type: Date,
+            required: true
         },
 
-        supplierTotal : {
+        customerInfo: {
+            type: String,
+            required: true,
+            trim: true
+        },
+
+         paidSales : {
             type: Number,
             required: true,
             min: 0
         },
 
-        paidAmount : {
+        dueSales: {
             type: Number,
             required: true,
             min: 0
         },
 
-        dueAmount : {
+        salesTotal : {
             type: Number,
             required: true,
             min: 0
-        }
+        },
+                
     },
-
     {
         timestamps : true
     }
 );
 
-export const Supplier = mongoose.model("suppliers", supplierSchema); 
+
+export const Sales = mongoose.model("Sales", salesSchema); 
+

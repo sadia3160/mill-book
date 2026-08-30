@@ -55,10 +55,29 @@ const displySuppliers = async () => {
                 <td>${suppliers.paidAmount}</td>
                 <td>${suppliers.dueAmount}</td>
                 <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <div id="button-actions">
+                        <button class="btn-action">Edit</button>
+                        <button class="btn-action">Delete</button>
+                    </div>
                 </td>
             `;
+            const save = row.querySelector("#btn-save");
+            const edit = row.querySelector("#btn-edit");
+            const del = row.querySelector("#btn-del");
+
+            /*
+            save.addEventListener('click', ()=>{
+
+            });
+
+            edit.addEventListener('click', ()=>{
+
+            });
+
+            del.addEventListener('click', ()=>{
+
+            });
+            */
             supplierTable.appendChild(row);
         });
 };

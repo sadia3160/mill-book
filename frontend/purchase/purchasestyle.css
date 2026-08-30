@@ -73,14 +73,17 @@ input, select, date{
 }
 
 .table-container {
+    width: 95%;
     overflow-x: auto;
+    margin: 0 auto;
 }
 
 table {
-    width: 95%;
+    width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
     padding: 15px;
+    min-width: 700px;
 }
 
 th,
@@ -131,4 +134,33 @@ h3{
 
 .nav-bar li a:hover:before{
     width: 100%;
+}
+
+.button-actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: auto;
+}
+
+.btn-action{
+    font-family: "Spinnaker", sans-serif;
+    font-weight: bold;
+    border: 1px solid gray;
+    
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-action:hover{
+    background-color: #C68942;
+    color: white;
+}
+
+@media (max-width: 768px){
+    .nav-bar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
 }

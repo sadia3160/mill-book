@@ -1,49 +1,52 @@
-//mongoose supplier schema
+
+//mongoose milling schema
+
 
 import mongoose, {Schema} from "mongoose";
 
-const supplierSchema = new Schema(
+const millingSchema = new Schema(
     {
-        supplierID : {
+        purchaseID : {
             type: Number,
             required: true,
             min: 1
         },
 
-        supplierName : {
+        millingCondition: {
             type: String,
             required: true,
             trim: true
         },
-        
-        supplierPhone: {
+
+         paddyQuantity : {
             type: Number,
             required: true,
             min: 1
         },
 
-        supplierTotal : {
+        remainingPaddy: {
             type: Number,
             required: true,
             min: 0
         },
 
-        paidAmount : {
+        riceQuantity : {
             type: Number,
             required: true,
             min: 0
         },
-
-        dueAmount : {
-            type: Number,
+                
+        byProducts: {
+            type: String,
             required: true,
-            min: 0
+            trim: true
         }
     },
-
     {
         timestamps : true
     }
 );
 
-export const Supplier = mongoose.model("suppliers", supplierSchema); 
+
+export const Milling = mongoose.model("Milling", millingSchema); 
+

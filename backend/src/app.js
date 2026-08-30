@@ -28,13 +28,18 @@ app.use(express.urlencoded({extended:true}));
 //import routes
 import userRoute from "../routes/user.route.js";
 import supplierRoute from "../routes/supplier.route.js";
+import purchaseRoute from "../routes/purchase.route.js";
+import millingRoute from "../routes/milling.route.js";
+import salesRoute from "../routes/sales.route.js";
 
 //declare routes
 app.use("/api/v1/user", userRoute);  //all routes of the user will be in userRoute
 //ex: http://localhost:5000/api/v1/user/register
 
 app.use("/api/v1/suppliers", supplierRoute); 
-
+app.use("/api/v1/purchases", purchaseRoute); 
+app.use("/api/v1/milling", millingRoute); 
+app.use("/api/v1/sales", salesRoute); 
 
 
 export default app;

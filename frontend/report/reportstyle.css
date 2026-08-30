@@ -86,3 +86,10 @@ body{
 #year-report:hover { 
     background-color: #56412B; 
 }
+@media (max-width: 768px){
+    .nav-bar{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}

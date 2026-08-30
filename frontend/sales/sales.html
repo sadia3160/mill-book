@@ -32,29 +32,37 @@
     </div>
 
     <h3>Sales Record</h3>
-    <table>
+     <button id="new-sales">
+        + Add new sales
+    </button>
 
-        <thead>
+    <div id="sales-table-container">
+        <table>
 
-            <tr>
-                <th>Product Name</th>
-                <th>Customer Name</th>
-                <th>Customer Info</th>
-                <th>Paid Sales</th>
-                <th>Due Sales</th>
-                <th>Total</th>
-                <th>Action</th>
-            </tr>
+            <thead>
 
-        </thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Date</th>       <!--input type: date-->
+                    <th>Customer Info</th>
+                    <th>Paid Sales</th>
+                    <th>Due Sales</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
 
-        <tbody id="purchaseTable">
+            </thead>
 
-        </tbody>
+            <tbody id="salesTable">
 
-    </table>
+            </tbody>
+
+        </table>
+    </div>
+
+   
    
 
-
+    <script type="module" src="sales.js"></script>
 </body>
 </html>
