@@ -3,11 +3,14 @@ import BASE_URL from "../config.js";
 const newMilling = document.querySelector("#new-milling");
 const millingTable = document.querySelector("#millingTable");
 
+const searchForm = document.querySelector("#purchase-seach-box");
+const pid = document.querySelector("#purchase-id-input");
 
 //read milling record
 
-const displayMilling = async () => {
-    const res = await fetch(`${BASE_URL}/api/v1/milling/get-milling`);
+const displayMilling = async (pID=undefined) => {
+    const url = pID ? `${BASE_URL}/api/v1/milling/get-milling?purchaseID=${pID}` : `${BASE_URL}/api/v1/milling/get-milling`;
+    const res = await fetch(url);
     const milling = await res.json();
 
     millingTable.innerHTML="";
@@ -161,4 +164,14 @@ const rowEditMode = (row, mode) => {
     }
 };  
 
-displayMilling();
+searchForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const pID = pid.value;
+    if(!pID){
+        alert("Enter purchase ID");
+        return;
+    }
+    displayMilling(pID);
+});
+
+displayMilling(undefined);

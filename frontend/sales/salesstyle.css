@@ -18,12 +18,13 @@ body{
     box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
 
-#new-paid,
 #new-due {
+    display: block;
     padding: 12px 20px;
     font-size: 16px;
-    width: 80px;
-    margin-left: 8px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: 40px;
     border: none;
     border-radius: 20px;
     background-color: #8f591b;
@@ -32,12 +33,6 @@ body{
     cursor: pointer;
 }
 
-#sales-type{
-    display: block;
-    width: 200px;
-    margin-left: auto;
-    margin-right: 30px;
-}
 
 #new-paid:hover,
 #new-due:hover {

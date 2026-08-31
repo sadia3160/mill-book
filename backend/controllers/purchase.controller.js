@@ -1,4 +1,5 @@
 import { Purchase } from "../models/purchase.model.js";
+import { dateRange } from "../utils/date.range.js";
 
 
 //create
@@ -62,12 +63,19 @@ const createPurchase = async (req, res) => {
 //read
 const getPurchases = async (req, res) =>{
     try{
-        const purchase = await Purchase.find();
-        res.status(200).json(purchase);
-    }
-    catch(err){
-        res.status(500).json({message: "Internal server error", error: err});
-    }
+            const { purchaseID } = req.query; 
+    
+            let dataFilter = {};
+            if(purchaseID){ //
+                dataFilter.purchaseID = purchaseID;
+            }
+    
+            const purchase = await Purchase.find(dataFilter);
+            res.status(200).json(purchase);
+        }
+        catch(err){
+            res.status(500).json({message: "Internal server error", error: err});
+        }
 };
 
 //edit
@@ -131,9 +139,43 @@ const deletePurchase = async (req, res)=>{
     }
 };
 
+const purchaseSummary = async (req, res) => {
+    try{
+        const { day, month, year } = req.query;
+        if(!year){
+            return res.status(400).json({message: "Year is required"});
+        }
+        const { start, end } = dateRange(day,month,year);
+
+        const summary = await Purchase.aggregate([
+            { 
+                $match : { 
+                    purchaseDate : { 
+                        $gte : start,
+                        $lt : end
+                    }
+                }
+            },
+
+            {
+                $group: {
+                    _id: null,
+                    totalPaidPurchase: { $sum : "$purchasePaidAmount"},
+                    totalDuePurchase: { $sum : "$purchaseDueAmount"},
+                }
+            }
+        ]);
+        res.status(201).json(summary[0] || { totalPaidPurchase : 0, totalDuePurchase : 0});
+    }
+    catch(err){
+         res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
 export {
     createPurchase,
     getPurchases,
     editPurchase,
-    deletePurchase
+    deletePurchase,
+    purchaseSummary
 };

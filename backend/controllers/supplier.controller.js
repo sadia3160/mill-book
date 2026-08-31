@@ -43,12 +43,19 @@ const createSupplier = async (req, res) => {
 //read
 const getSuppilers = async (req, res) =>{
     try{
-        const supplier = await Supplier.find();
-        res.status(200).json(supplier);
-    }
-    catch(err){
-        res.status(500).json({message: "Internal server error", error: err});
-    }
+            const { supplierID } = req.query; 
+    
+            let dataFilter = {};
+            if(supplierID){ //
+                dataFilter.supplierID = supplierID;
+            }
+    
+            const supplier = await Supplier.find(dataFilter);
+            res.status(200).json(supplier);
+        }
+        catch(err){
+            res.status(500).json({message: "Internal server error", error: err});
+        }
 };
 
 //edit

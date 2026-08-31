@@ -18,6 +18,8 @@ const paidAmount = document.getElementById("paidAmount");
 const dueAmount = document.getElementById("dueAmount");
 
 
+const searchForm = document.querySelector("#supplier-search-box");
+const sid = document.querySelector("#supplier-id-input");
 
 //new supplier button code 
 
@@ -39,8 +41,9 @@ close.addEventListener("click", () => {
 //table code :  post, read, put, delete 
 
 //read
-const displySuppliers = async () => {
-        const res = await fetch(`${BASE_URL}/api/v1/suppliers/get-suppliers`);
+const displySuppliers = async (sID=undefined) => {
+        const url = sID ? `${BASE_URL}/api/v1/suppliers/get-suppliers?supplierID=${sID}` : `${BASE_URL}/api/v1/suppliers/get-suppliers`;
+        const res = await fetch(url);
         const suppliers = await res.json();
 
         supplierTable.innerHTML="";
@@ -217,7 +220,17 @@ const rowEditMode = (row, mode) => {
     }
 };  
 
-displySuppliers();
+searchForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const sID = sid.value;
+    if(!sID){
+        alert("Enter supplier ID");
+        return;
+    }
+    displySuppliers(sID);
+});
+
+displySuppliers(undefined);
 
 
                         

@@ -26,10 +26,36 @@
       </ul>
     </nav>
 
-   
-    <button id="day-report">Day</button>
-    <button id="month-report">Month</button>
-    <button id="year-report">Year</button>
+    <form id="reportForm">
+      <input type="number" min="0" max="31" id="day-report" name="day-report" placeholder="Enter date">
+      <input type="number" min="0" max="12" id="month-report" name="month-report" placeholder="Enter month no">  
+      <input type="number" min="2000" id="year-report" name="year-report" placeholder="Enter year">
+      <button type="submit" id="btn-form">Submit</button>
+    </form>
 
+    <div id="report-table-container">
+        <h2 id="range"> </h2>
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Paid Purchases</th>      
+                    <th>Due Purchases</th>
+                     <th>Paid Sales</th> 
+                    <th>Due Sales</th>
+                    
+                </tr>
+
+            </thead>
+
+            <tbody id="reportTable">
+
+            </tbody>
+
+        </table>
+    </div>
+        
+    <script type="module" src="report.js"></script>
 </body>
 </html>

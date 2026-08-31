@@ -27,7 +27,14 @@
       </ul>
     </nav>
 
-    <button id="new-supplier">Add new supplier</button>
+     <div id="supplierHeader">
+        <form id="supplier-search-box">
+            <input type="number" min="0" id="supplier-id-input" name="supplierID" placeholder="Enter Supplier ID">
+            <button type="submit" id="supplier-id-input-btn">Submit</button>
+        </form>
+         <button id="new-supplier">Add new supplier</button>
+    </div>
+    
 
     <div class="form-container">
 
@@ -47,6 +54,8 @@
         </form>
         <p id="supplier-form-msg"></p>
     </div>
+
+   
     
 
     <h3>Supplier List</h3>

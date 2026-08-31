@@ -6,6 +6,9 @@ const formBtn = document.querySelector("#new-purchase");
 const submit = document.querySelector("#add-btn");
 const close = document.querySelector("#clear-btn");
 
+const searchForm = document.querySelector("#purchase-seach-box");
+const pid = document.querySelector("#purchase-id-input");
+
 //button action
 
 formBtn.addEventListener("click", () => {
@@ -48,8 +51,9 @@ const formatDate = (currentDateString) =>{
 }
 
 //read
-const displyPurchases = async () => {
-        const res = await fetch(`${BASE_URL}/api/v1/purchases/get-purchases`);
+const displayPurchases = async (pID=undefined) => {
+        const url = pID ? `${BASE_URL}/api/v1/purchases/get-purchases?purchaseID=${pID}` : `${BASE_URL}/api/v1/purchases/get-purchases`;
+        const res = await fetch(url);
         const purchases = await res.json();
 
         purchaseTable.innerHTML="";
@@ -131,7 +135,7 @@ purchaseForm.addEventListener('submit', async (event)=>{
         if(res.ok){
             formMsg .style.color = "green";
             purchaseForm.reset();
-            displyPurchases();
+            displayPurchases();
 
         } else{
             formMsg.style.color = "red";
@@ -197,7 +201,7 @@ purchaseTable.addEventListener(('click'), async (event)=>{
                 });
 
                 if(res.ok){
-                    displyPurchases();
+                    displayPurchases();
                 } else {
                     alert("Can't save now, Try again later");
                 }
@@ -264,6 +268,15 @@ const rowEditMode = (row, mode) => {
     }
 };  
 
-               
+ 
+searchForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const pID = pid.value;
+    if(!pID){
+        alert("Enter purchase ID");
+        return;
+    }
+    displayPurchases(pID);
+});
 
-displyPurchases();
+displayPurchases(undefined);

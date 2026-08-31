@@ -3,6 +3,8 @@ import BASE_URL from "../config.js";
 const newSales= document.querySelector("#new-sales");
 const salesTable = document.querySelector("#salesTable");
 
+const dueBtn = document.querySelector("#new-due");
+
 const formatDate = (currentDateString) =>{
     const d = new Date(currentDateString);
     return d.toLocaleDateString('sv-SE'); //swedish
@@ -11,8 +13,9 @@ const formatDate = (currentDateString) =>{
 
 //read milling record
 
-const displaySales = async () => {
-    const res = await fetch(`${BASE_URL}/api/v1/sales/get-sales`);
+const displaySales = async (due = false) => {
+    const url = due ? `${BASE_URL}/api/v1/sales/get-sales?due=true` : `${BASE_URL}/api/v1/sales/get-sales`;
+    const res = await fetch(url);
     const sales = await res.json();
 
     salesTable.innerHTML="";
@@ -173,4 +176,12 @@ const rowEditMode = (row, mode) => {
     }
 }; 
 
+//search due sales
+dueBtn.addEventListener('click', ()=>{
+    displaySales(true);
+});
+
+
 displaySales();
+
+

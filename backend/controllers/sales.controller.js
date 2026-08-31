@@ -1,5 +1,5 @@
 import { Sales } from "../models/sales.model.js";
-
+import { dateRange } from "../utils/date.range.js";
 
 //create
 const createSales = async (req, res) => {
@@ -50,7 +50,14 @@ const createSales = async (req, res) => {
 //read
 const getSales = async (req, res) =>{
     try{
-        const sales = await Sales.find();
+        const { due } = req.query; //Due boolean
+
+        let dataFilter = {};
+        if(due ==='true'){ //
+            dataFilter.dueSales = { $gt: 0} ;
+        }
+
+        const sales = await Sales.find(dataFilter);
         res.status(200).json(sales);
     }
     catch(err){
@@ -108,9 +115,43 @@ const deleteSales = async (req, res)=>{
     }
 };
 
+const salesSummary = async (req, res) => {
+    try{
+            const { day, month, year } = req.query;
+            if(!year){
+                return res.status(400).json({message: "Year is required"});
+            }
+            const { start, end } = dateRange(day,month,year);
+    
+            const summary = await Sales.aggregate([
+                { 
+                    $match : { 
+                        salesDate : { 
+                            $gte : start,
+                            $lt : end
+                        }
+                    }
+                },
+    
+                {
+                    $group: {
+                        _id: null, //required
+                        totalPaidSales: { $sum : "$paidSales"},
+                        totalDueSales: { $sum : "$dueSales"},
+                    }
+                }
+            ]);
+            res.status(201).json(summary[0] || { totalPaidSales : 0, totalDueSales: 0});
+        }
+        catch(err){
+             res.status(500).json({message: "Internal server error", error: err});
+        }
+};
+
 export {
     createSales,
     getSales,
     editSales,
-    deleteSales
+    deleteSales,
+    salesSummary
 };
