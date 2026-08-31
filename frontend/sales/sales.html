@@ -26,35 +26,41 @@
       </ul>
     </nav>
   
-    <div id="sales-type">
-      <button id="new-paid">Paid</button>
-      <button id="new-due">Due</button>
-    </div>
-
-    <h3>Sales Record</h3>
-    <table>
-
-        <thead>
-
-            <tr>
-                <th>Product Name</th>
-                <th>Customer Name</th>
-                <th>Customer Info</th>
-                <th>Paid Sales</th>
-                <th>Due Sales</th>
-                <th>Total</th>
-                <th>Action</th>
-            </tr>
-
-        </thead>
-
-        <tbody id="purchaseTable">
-
-        </tbody>
-
-    </table>
+    <button id="new-due">Due</button>
    
 
+    <h3>Sales Record</h3>
+     <button id="new-sales">
+        + Add new sales
+    </button>
 
+    <div id="sales-table-container">
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Product Name</th>
+                    <th>Date</th>       <!--input type: date-->
+                    <th>Customer Info</th>
+                    <th>Paid Sales</th>
+                    <th>Due Sales</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="salesTable">
+
+            </tbody>
+
+        </table>
+    </div>
+
+   
+   
+
+    <script type="module" src="sales.js"></script>
 </body>
 </html>

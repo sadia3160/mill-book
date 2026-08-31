@@ -12,6 +12,7 @@
 
 <body>
 
+
     <div id="milling-hero">
         <h2>Milling</h2>
     </div>
@@ -26,32 +27,44 @@
       </ul>
     </nav>
 
+    <div id="millingHeader">
+        <form id="purchase-seach-box">
+            <input type="number" min="0" id="purchase-id-input" name="purchaseID" placeholder="Enter Purchase ID">
+            <button type="submit" id="purchase-id-input-btn">Submit</button>
+        </form>
+    </div>
+
     <h3>Milling Record</h3>
-    <table>
+    <button id="new-milling">
+        + Add new milling record
+    </button>
+    
+    <div id="milling-table-container">
+        <table>
 
-        <thead>
+            <thead>
 
-            <tr>
-                <th>Purchase ID</th>
-                <th>Milling Condition</th>
-                <th>Paddy Quantity</th>
-                <th>Remaining Paddy</th>
-                <th>Rice Quantity</th>
-                <th>By-products</th>
-                <th>Action</th>
-            </tr>
+                <tr>
+                    <th>Purchase ID</th>
+                    <th>Milling Condition</th>
+                    <th>Paddy Quantity (kg)</th>
+                    <th>Remaining Paddy (kg)</th>
+                    <th>Rice Quantity (kg)</th>
+                    <th>By-products</th>
+                    <th>Action</th>
+                </tr>
 
-        </thead>
+            </thead>
 
-        <tbody id="purchaseTable">
+            <tbody id="millingTable">
 
-        </tbody>
+            </tbody>
 
-    </table>
+        </table>
+    </div>
+    
 
 
-   
-
-
+    <script type="module" src="milling.js"></script>
 </body>
 </html>

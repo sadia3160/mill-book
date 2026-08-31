@@ -27,7 +27,14 @@
       </ul>
     </nav>
 
-    <button id="new-supplier">Add new supplier</button>
+     <div id="supplierHeader">
+        <form id="supplier-search-box">
+            <input type="number" min="0" id="supplier-id-input" name="supplierID" placeholder="Enter Supplier ID">
+            <button type="submit" id="supplier-id-input-btn">Submit</button>
+        </form>
+         <button id="new-supplier">Add new supplier</button>
+    </div>
+    
 
     <div class="form-container">
 
@@ -35,39 +42,45 @@
 
         <form id="supplierForm">
 
-            <input type="text" id="sellerName" placeholder="Supplier Name" required>
-            <input type="text" id="phone" placeholder="Phone Number" required>
-            <input type="text" id="address" placeholder="Address" required>
-            <input type="number" id="paidAmount" placeholder="Paid Amount">
-             <input type="number" id="dueAmount" placeholder="Due Amount">
-            <button id="close">Close</button>
+            <input type="number" id="supplierID" name="supplierID" placeholder="Supplier ID" min="0">
+            <input type="text" id="supplierName" name="supplierName" placeholder="Supplier Name">
+            <input type="text" id="supplierPhone" name="supplierPhone" placeholder="Phone Number">
+            <input type="number" id="total" name="supplierTotal" placeholder="Total" min="0">
+            <input type="number" id="paidAmount" name="paidAmount" placeholder="Paid Amount" min="0">
+             <input type="number" id="dueAmount" name="dueAmount" placeholder="Due Amount" min="0">
+            <button id="close" type="button">Close</button>
             <button type="submit" id="formBtn-submit">Save Supplier</button>
 
         </form>
-
+        <p id="supplier-form-msg"></p>
     </div>
 
+   
+    
+
     <h3>Supplier List</h3>
-    <table>
-        <thead>
-            <tr>
-                    <th>Supplier ID</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Total</th>
-                    <th>Paid Purchase</th>
-                    <th>Due Purchase</th>
-                    <th>Action</th>
-            </tr>
-        </thead>
+    <div id="supplier-table-container">
+        <table>
+            <thead>
+                <tr>
+                        <th>Supplier ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Total</th>
+                        <th>Paid Purchase</th>
+                        <th>Due Purchase</th>
+                        <th>Action</th>
+                </tr>
+            </thead>
 
-        <tbody id="supplierTable">
-                    
-        </tbody>
+            <tbody id="supplierTable">
+                        
+            </tbody>
 
-    </table>
+        </table>
+    </div>
 
-    <script src="supplier.js"></script>
+    <script type="module" src="supplier.js"></script>
 
     </body>
 </html>

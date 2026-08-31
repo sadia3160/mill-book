@@ -26,8 +26,13 @@
       </ul>
     </nav>
        
-
-   <button id="new-purchase">New Purchase</button>
+    <div id="purchaseHeader">
+        <form id="purchase-seach-box">
+            <input type="number" min="0" id="purchase-id-input" name="purchaseID" placeholder="Enter Purchase ID">
+            <button type="submit" id="purchase-id-input-btn">Submit</button>
+        </form>
+         <button id="new-purchase">New Purchase</button>
+    </div>
 
    <div class="purchase-form-container">
 
@@ -38,19 +43,27 @@
             <form id="purchaseForm">
 
                 <div class="form-group">
+                    <label>Purchase ID</label>
+                    <input type="text"
+                           id="pid"
+                           placeholder="Enter purchase ID"
+                           name="purchaseID">
+                </div>
+
+                <div class="form-group">
                     <label>Purchase Date</label>
-                    <input type="date" id="purchaseDate" required>
+                    <input type="date" id="purchaseDate" nam="purchaseDate">
                 </div>
 
                 <div class="form-group">
                     <label>Description</label>
                     <input type="text"
-                           id="description"
+                           id="purchaseDescription"
                            placeholder="Enter description"
-                           required>
+                           name="purchaseDescription">
                 </div>
 
-                <select id="riceType" required>
+                <select id="purchaseRiceType" name="purchaseRiceType">
                 <option ="" disabled selected>Rice Type</option>
                 
                 <option>Ariton</option>
@@ -71,42 +84,42 @@
                 <div class="form-group">
                     <label>Quantity (KG)</label>
                     <input type="number"
-                           id="quantity"
+                           id="purchaseQuantity"
                            placeholder="Enter quantity"
                            min="0"
-                           required>
+                           name="purchaseQuantity">
                 </div>
 
                 <div class="form-group">
                     <label>Unit Price (TK)</label>
                     <input type="number"
-                           id="unitPrice"
+                           id="purchaseUnitPrice"
                            placeholder="Enter unit price"
                            min="0"
-                           required>
+                           name="purchaseUnitPrice">
                 </div>
 
                 <div class="form-group">
                     <label>Total Purchase Cost (TK)</label>
                     <input type="number"
-                           id="totalCost"
+                           id="purchaseTotalCost"
                            min="0"
                            placeholder="Enter purchase cost"
-                           required>
+                           name="purchaseTotalCost">
                 </div>
 
                 <div class="form-group">
-                    <label>Supplier</label>
+                    <label>Supplier ID</label>
                     <input type="text"
-                           id="supplier"
-                           placeholder="Enter supplier name"
-                           required>
+                           id="purchaseSupplierID"
+                           placeholder="Enter supplier ID"
+                           name="purchaseSupplierID">
                 </div>
 
                 <div class="form-group">
                     <label>On Account</label>
 
-                    <select id="onAccount">
+                    <select id="purchaseOnAccount" name="purchaseOnAccount">
                         <option value="No">No</option>
                         <option value="Yes">Yes</option>
                     </select>
@@ -115,25 +128,25 @@
                 <div class="form-group">
                     <label>Paid Amount (TK)</label>
                     <input type="number"
-                           id="paidAmount"
+                           id="purchasePaidAmount"
                            placeholder="Enter paid amount"
                            min="0"
-                           required>
+                           name="purchasePaidAmount">
                 </div>
 
                 <div class="form-group">
                     <label>Due Amount (TK)</label>
                     <input type="number"
-                           id="dueAmount"
+                           id="purchaseDueAmount"
                            min="0"
                            placeholder="Enter due amount"
-                           required>
+                           name="purchaseDueAmount">
                 </div>
 
                 <div class="button-area">
 
-                    <button type="reset" id="clear-btn">
-                        Clear
+                    <button type="button" id="clear-btn">
+                        Close
                     </button>
 
                     <button type="submit" id="add-btn">
@@ -143,48 +156,49 @@
                 </div>
 
             </form>
+            
+            <p id="purchase-form-msg"></p>
 
         </div>
-
 
    </div>
 
    
 
    <h3>Purchase List</h3>
-   <table>
 
-                <thead>
+   <div class=".table-container">
+            
+        <table>
 
-                    <tr>
-                        <th>PID</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                        <th>Rice Type</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
-                        <th>Total Cost</th>
-                        <th>Supplier ID</th>
-                        <th>On Account</th>
-                        <th>Paid</th>
-                        <th>Due</th>
-                        <th>Action</th>
-                    </tr>
+            <thead>
 
-                </thead>
+                <tr>
+                    <th>PID</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Rice Type</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Cost</th>
+                    <th>Supplier ID</th>
+                    <th>On Account</th>
+                    <th>Paid</th>
+                    <th>Due</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
 
                 <tbody id="purchaseTable">
 
                 </tbody>
 
-            </table>
-
-        </div>
-
-    </div>
+        </table>
+   </div>
 
 
-    <script src="purchase.js"></script>
+    <script type="module" src="purchase.js"></script>
 
 </body>
 </html>
