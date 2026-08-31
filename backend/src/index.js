@@ -14,9 +14,11 @@ const startServer = async () =>{
             throw err;
         });
         
-        app.listen(process.env.PORT || 8000, () => {
-            console.log(`Server is running on PORT ${process.env.PORT}...`);
-        });
+        if(process.env.NODE_ENV !== 'production'){
+            app.listen(process.env.PORT || 8000, () => {
+                console.log(`Server is running on PORT ${process.env.PORT}...`);
+            });
+         }
     }
     catch(err){
         console.log(`MongoDB connection failed ${err}`);
@@ -24,3 +26,5 @@ const startServer = async () =>{
 }
 
 startServer();
+
+export default app;

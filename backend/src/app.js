@@ -13,9 +13,11 @@ import express from "express";
 import cors from "cors";
 import path from 'path';
 import { fileURLToPath } from "url";
+import connectDB from "../config/database.js";
 
 
 const app = express();  //an express app is created
+
 
 app.use(cors({origin:process.env.FRONTEND_URL}));
 
