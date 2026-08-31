@@ -10,13 +10,11 @@ MillBook is a digital Notebook website for rice mill shop owners. It includes tr
 **Core features (MVP)**
 ---
 - User registration and login/logout
-- Stock Updates
 - Purchases
 - Milling updates
 - Sales
-- Accounts
 - Report
-- Seller info
+- Supplier info
 
 
 > This project is part of our CSE-323: Web Programming Lab course.
