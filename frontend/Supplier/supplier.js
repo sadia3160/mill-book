@@ -47,42 +47,28 @@ const displySuppliers = async () => {
 
         suppliers.forEach((suppliers,index)=>{
             const row = document.createElement('tr');
+            row.dataset.id = suppliers._id;
             row.innerHTML = `
-                <td>${suppliers.supplierID}</td>
-                <td>${suppliers.supplierName}</td>
-                <td>${suppliers.supplierPhone}</td>
-                <td>${suppliers.supplierTotal}</td>
-                <td>${suppliers.paidAmount}</td>
-                <td>${suppliers.dueAmount}</td>
+                <td class="label-supplierID">${suppliers.supplierID}</td>
+                <td class="label-supplierName">${suppliers.supplierName}</td>
+                <td class="label-supplierPhone">${suppliers.supplierPhone}</td>
+                <td class="label-supplierTotal">${suppliers.supplierTotal}</td>
+                <td class="label-paidAmount">${suppliers.paidAmount}</td>
+                <td class="label-dueAmount">${suppliers.dueAmount}</td>
                 <td>
                     <div id="button-actions">
-                        <button class="btn-action">Edit</button>
-                        <button class="btn-action">Delete</button>
+                        <button class="btn-action btn-edit">Edit</button>
+                        <button class="btn-action btn-save">Save</button>
+                        <button class="btn-action btn-del">Delete</button>
                     </div>
                 </td>
             `;
-            const save = row.querySelector("#btn-save");
-            const edit = row.querySelector("#btn-edit");
-            const del = row.querySelector("#btn-del");
 
-            /*
-            save.addEventListener('click', ()=>{
-
-            });
-
-            edit.addEventListener('click', ()=>{
-
-            });
-
-            del.addEventListener('click', ()=>{
-
-            });
-            */
             supplierTable.appendChild(row);
         });
 };
 
-//write
+//add new supplier
 supplierForm.addEventListener('submit', async (event)=>{
     event.preventDefault();
 
@@ -114,27 +100,127 @@ supplierForm.addEventListener('submit', async (event)=>{
         });
 
         const data = await res.json();
-        formMsg .innerText = data.message;
+        formMsg.innerText = data.message;
         
         if(res.ok){
-            formMsg .style.color = "green";
+            formMsg.style.color = "green";
             supplierForm.reset();
             displySuppliers();
 
         } else{
-            formMsg .style.color = "red";
+            formMsg.style.color = "red";
         }
     }
     catch(err){
-        formMsg .innerText =  "Can't Create New Supplier Now. Try again!"
-        formMsg .style.color = "red";
+        formMsg.innerText =  "Can't Create New Supplier Now. Try again!"
+        formMsg.style.color = "red";
     }
 
 });
 
-//update
-//delete
+//
 
+supplierTable.addEventListener(('click'), async (event)=>{
 
+    const target = event.target;
+    const row = target.closest('tr');
+
+    if(!row){
+        return;
+    }
+
+    const id = row.dataset.id;
+
+    //save  
+    if(target.classList.contains('btn-save')){
+
+        const supplierID = row.querySelector(".input-supplierID").value;
+        const supplierName = row.querySelector(".input-supplierName").value;
+        const supplierPhone = row.querySelector(".input-supplierPhone").value;
+        const supplierTotal = row.querySelector(".input-supplierTotal").value;
+        const paidAmount = row.querySelector(".input-paidAmount").value;
+        const dueAmount = row.querySelector(".input-dueAmount").value;
+
+        if(!id){ 
+            //error message
+            alert("No supplier found!");
+        }
+        else { 
+            //edit code save [put] goes here
+            try{
+                const res = await fetch(`${BASE_URL}/api/v1/suppliers/edit-supplier/${id}`, { //edit api
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        supplierID, 
+                        supplierName,
+                        supplierPhone, 
+                        supplierTotal, 
+                        paidAmount, 
+                        dueAmount
+                    })
+                });
+
+                if(res.ok){
+                    displySuppliers();
+                } else {
+                    alert("Can't save now, Try again later");
+                }
+            } catch(err){
+                //error message
+                alert("Can't save now, Try again later");
+            }
+        }
+    }
+
+    //edit button code
+    if(target.classList.contains('btn-edit')){
+        rowEditMode(row, true);
+    }
+
+    //del button code
+    if(target.classList.contains('btn-del')){
+        try{
+           const res = await fetch(`${BASE_URL}/api/v1/suppliers/delete-supplier/${id}`, { method: 'DELETE' });
+        
+            if(res.ok){
+                row.remove();
+            } else {
+                alert("Can't delete now, try again later");
+            }
+        }
+        catch(err){
+            alert("Can't delete now, try again later");
+        }
+    }
+
+});
+
+const rowEditMode = (row, mode) => {
+
+    const label_supplierID  = row.querySelector(".label-supplierID");
+    const label_supplierName = row.querySelector(".label-supplierName");
+    const label_supplierPhone = row.querySelector(".label-supplierPhone");
+    const label_supplierTotal = row.querySelector(".label-supplierTotal");
+    const label_paidAmount = row.querySelector(".label-paidAmount");
+    const label_dueAmount = row.querySelector(".label-dueAmount");
+
+    if(mode){
+
+        label_supplierID.innerHTML = `<input type="number" class="input-supplierID" value="${label_supplierID.textContent.trim()}">`;
+        label_supplierName.innerHTML = `<input type="text" class="input-supplierName" value="${label_supplierName.textContent.trim()}">`;
+        label_supplierPhone.innerHTML = `<input type="number" class="input-supplierPhone" value="${label_supplierPhone.textContent.trim()}">`;
+        label_supplierTotal.innerHTML = `<input type="number" class="input-supplierTotal" value="${label_supplierTotal.textContent.trim()}">`;
+        label_paidAmount.innerHTML = `<input type="number" class="input-paidAmount" value="${label_paidAmount.textContent.trim()}">`;
+        label_dueAmount.innerHTML = `<input type="number" class="input-dueAmount" value="${label_dueAmount.textContent.trim()}">`;
+
+    }
+};  
 
 displySuppliers();
+
+
+                        
+                         
+                         
+                       

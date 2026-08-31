@@ -58,7 +58,59 @@ const getSales = async (req, res) =>{
     }
 };
 
+//edit
+
+const editSales = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const { 
+            productName,
+            salesDate,
+            customerInfo,
+            paidSales,
+            dueSales,
+            salesTotal
+        } = req.body;
+
+        const newRecord = await Sales.findByIdAndUpdate(
+            id,
+            {productName,
+            salesDate,
+            customerInfo,
+            paidSales,
+            dueSales,
+            salesTotal},
+            {new: true, runValidators: true} //get updated data
+        );
+
+        if(!newRecord){
+            return res.status(404).json({message: "Data not found"});
+        }
+        res.status(200).json(newRecord);
+    }
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
+const deleteSales = async (req, res)=>{
+    try{
+        const { id } = req.params;
+        const del = await Sales.findByIdAndDelete(id);
+
+        if(!del){
+            return res.status(404).json({message: "Data not found"});
+        }
+        res.status(201).json({message: "Record deleted successfully"});
+    }   
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
 export {
     createSales,
-    getSales
+    getSales,
+    editSales,
+    deleteSales
 };

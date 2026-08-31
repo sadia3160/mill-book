@@ -70,7 +70,70 @@ const getPurchases = async (req, res) =>{
     }
 };
 
+//edit
+
+const editPurchase = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const { 
+                purchaseID,
+                purchaseDate,
+                purchaseDescription,
+                purchaseRiceType,
+                purchaseQuantity,
+                purchaseUnitPrice,
+                purchaseTotalCost,
+                purchaseSupplierID,
+                purchaseOnAccount,
+                purchasePaidAmount,
+                purchaseDueAmount 
+        } = req.body;
+
+        const newRecord = await Purchase.findByIdAndUpdate(
+            id,
+            {   purchaseID,
+                purchaseDate,
+                purchaseDescription,
+                purchaseRiceType,
+                purchaseQuantity,
+                purchaseUnitPrice,
+                purchaseTotalCost,
+                purchaseSupplierID,
+                purchaseOnAccount,
+                purchasePaidAmount,
+                purchaseDueAmount  },
+
+            {new: true, runValidators: true} //get updated data
+        );
+
+        if(!newRecord){
+            return res.status(404).json({message: "Data not found"});
+        }
+        res.status(200).json(newRecord);
+    }
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
+const deletePurchase = async (req, res)=>{
+    try{
+        const { id } = req.params;
+        const del = await Purchase.findByIdAndDelete(id);
+
+        if(!del){
+            return res.status(404).json({message: "Data not found"});
+        }
+        res.status(201).json({message: "Record deleted successfully"});
+    }   
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
 export {
     createPurchase,
-    getPurchases
+    getPurchases,
+    editPurchase,
+    deletePurchase
 };

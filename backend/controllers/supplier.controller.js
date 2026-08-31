@@ -51,7 +51,59 @@ const getSuppilers = async (req, res) =>{
     }
 };
 
+//edit
+
+const editSupplier = async (req, res) => {
+    try{
+        const { id } = req.params;
+        const { 
+            supplierID, 
+            supplierName,
+            supplierPhone, 
+            supplierTotal, 
+            paidAmount, 
+            dueAmount
+        } = req.body;
+
+        const newRecord = await Supplier.findByIdAndUpdate(
+            id,
+            {supplierID, 
+            supplierName,
+            supplierPhone, 
+            supplierTotal, 
+            paidAmount, 
+            dueAmount},
+            {new: true, runValidators: true} //get updated data
+        );
+
+        if(!newRecord){
+            return res.status(404).json({message: "Data not found"});
+        }
+        res.status(200).json(newRecord);
+    }
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
+const deleteSupplier = async (req, res)=>{
+    try{
+        const { id } = req.params;
+        const del = await Supplier.findByIdAndDelete(id);
+
+        if(!del){
+            return res.status(404).json({message: "Data not found"});
+        }
+        res.status(201).json({message: "Record deleted successfully"});
+    }   
+    catch(err){
+        res.status(500).json({message: "Internal server error", error: err});
+    }
+};
+
 export {
     createSupplier,
-    getSuppilers
+    getSuppilers,
+    editSupplier,
+    deleteSupplier
 };
