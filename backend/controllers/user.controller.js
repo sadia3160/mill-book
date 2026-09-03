@@ -57,7 +57,6 @@ const loginUser = async (req, res) => {
         //check if exists
         const user = await User.findOne({
             email : email.toLowerCase(),
-             id: req.user.id
         });
         
         if(!user){
