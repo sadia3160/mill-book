@@ -65,12 +65,12 @@ const getPurchases = async (req, res) =>{
     try{
             const { purchaseID } = req.query; 
     
-            let dataFilter = {};
+            let dataFilter = {id: req.user.id};
             if(purchaseID){ //
                 dataFilter.purchaseID = purchaseID;
             }
     
-            const purchase = await Purchase.find({id: req.user.id, dataFilter});
+            const purchase = await Purchase.find(dataFilter);
             res.status(200).json(purchase);
         }
         catch(err){

@@ -52,12 +52,12 @@ const getSales = async (req, res) =>{
     try{
         const { due } = req.query; //Due boolean
 
-        let dataFilter = {};
+        let dataFilter = {id: req.user.id};
         if(due ==='true'){ //
             dataFilter.dueSales = { $gt: 0} ;
         }
 
-        const sales = await Sales.find({id: req.user.id, dataFilter});
+        const sales = await Sales.find(dataFilter);
         res.status(200).json(sales);
     }
     catch(err){

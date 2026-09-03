@@ -58,12 +58,12 @@ const getMilling = async (req, res) =>{
     try{
             const { purchaseID } = req.query; 
     
-            let dataFilter = {};
+            let dataFilter = {id: req.user.id};
             if(purchaseID){ //
                 dataFilter.purchaseID = purchaseID;
             }
     
-            const milling = await Milling.find({id: req.user.id, dataFilter});
+            const milling = await Milling.find(dataFilter);
             res.status(200).json(milling);
         }
         catch(err){
