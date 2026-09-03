@@ -57,7 +57,7 @@ const getSales = async (req, res) =>{
             dataFilter.dueSales = { $gt: 0} ;
         }
 
-        const sales = await Sales.find(dataFilter);
+        const sales = await Sales.find({id: req.user.id, dataFilter});
         res.status(200).json(sales);
     }
     catch(err){

@@ -50,7 +50,10 @@ const getSuppilers = async (req, res) =>{
                 dataFilter.supplierID = supplierID;
             }
     
-            const supplier = await Supplier.find(dataFilter);
+            const supplier = await Supplier.find({
+                id: req.user.id,
+                dataFilter,
+            });
             res.status(200).json(supplier);
         }
         catch(err){
